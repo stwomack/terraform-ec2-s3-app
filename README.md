@@ -1,6 +1,6 @@
 # Terraform EC2 + S3 Web Application
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - AWS CLI configured (`aws configure`)
@@ -36,13 +36,13 @@
    website_url = "http://54.123.45.67"
    ```
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 Internet → Security Group → EC2 Instance (Node.js) → IAM Role → S3 Bucket
 ```
 
-## 📦 What Gets Deployed
+## What Gets Deployed
 
 - **EC2 Instance** (t2.micro) - Runs Node.js web server
 - **S3 Bucket** - Stores content files
@@ -50,7 +50,7 @@ Internet → Security Group → EC2 Instance (Node.js) → IAM Role → S3 Bucke
 - **Security Group** - HTTP (80), HTTPS (443), SSH (22)
 - **Auto-start Service** - Webapp starts automatically on boot
 
-## 🔄 Updating S3 Content
+## Updating S3 Content
 
 To update the message or config without redeploying EC2:
 
@@ -58,20 +58,20 @@ To update the message or config without redeploying EC2:
 2. Run: `terraform apply -target=aws_s3_object.message`
 3. Refresh your browser
 
-## 💰 Estimated Cost
+## Estimated Cost
 
 - **EC2 t2.micro**: ~$8.50/month (FREE with AWS Free Tier for 12 months)
 - **S3 Storage**: ~$0.023/GB/month (negligible for small files)
 - **Total**: ~$8-10/month (or FREE with Free Tier)
 
-## 🧹 Cleanup
+## Cleanup
 
 To destroy all resources:
 ```bash
 terraform destroy
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Application not loading?
 - Wait 3-5 minutes after `terraform apply` completes
@@ -88,7 +88,7 @@ terraform destroy
 sudo journalctl -u webapp -f
 ```
 
-## 📝 Project Files
+## Project Files
 
 - `main.tf` - Main infrastructure configuration
 - `variables.tf` - Input variables
@@ -97,7 +97,7 @@ sudo journalctl -u webapp -f
 - `user-data.sh` - EC2 bootstrap script
 - `README.md` - This file
 
-## 🔒 Security Notes
+## Security Notes
 
 **For Production:**
 - Restrict `ssh_cidr_blocks` to your IP only
@@ -106,7 +106,7 @@ sudo journalctl -u webapp -f
 - Enable S3 bucket versioning
 - Add CloudWatch monitoring
 
-## 📚 Learn More
+## Learn More
 
 - [Terraform AWS Provider Docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 - [AWS EC2 Documentation](https://docs.aws.amazon.com/ec2/)
