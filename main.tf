@@ -70,9 +70,9 @@ resource "aws_s3_object" "message" {
 }
 
 resource "aws_s3_object" "config" {
-  bucket       = aws_s3_bucket.content.id
-  key          = "config.json"
-  content      = jsonencode({
+  bucket = aws_s3_bucket.content.id
+  key    = "config.json"
+  content = jsonencode({
     app_name    = "Hello World EC2 + S3 App"
     version     = "1.0.0"
     description = "A web application running on EC2 that retrieves content from S3"
@@ -185,7 +185,7 @@ resource "aws_instance" "web_server" {
   instance_type          = var.instance_type
   iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
   vpc_security_group_ids = [aws_security_group.web_server.id]
-  
+
   user_data = templatefile("${path.module}/user-data.sh", {
     bucket_name = aws_s3_bucket.content.id
     aws_region  = var.aws_region

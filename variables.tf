@@ -30,5 +30,5 @@ variable "instance_type" {
 variable "ssh_cidr_blocks" {
   description = "CIDR blocks allowed to SSH into the instance"
   type        = list(string)
-  default     = ["0.0.0.0/0"]  # WARNING: Restrict this in production!
+  default     = ["0.0.0.0/0"] # WARNING: Restrict this in production!
 }
