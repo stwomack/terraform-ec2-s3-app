@@ -19,6 +19,7 @@ variable "environment" {
 variable "content_bucket_name" {
   description = "Name of the S3 bucket for content (must be globally unique)"
   type        = string
+  default     = "womack-bucket"
 }
 
 variable "instance_type" {
